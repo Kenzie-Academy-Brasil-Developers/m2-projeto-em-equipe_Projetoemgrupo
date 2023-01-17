@@ -17,7 +17,7 @@ function openModalCadastro(){
 openModalCadastro()
 
 function createUserForm(){
-    const inputs = document.querySelectorAll('.Form_Cadastro > input')
+    const inputs = document.querySelectorAll('.Input_Cadastrar')
     const button = document.querySelector('.Cadastrar')
     
     const newUser = {}
@@ -28,10 +28,10 @@ function createUserForm(){
         inputs.forEach(input => {
             newUser[input.name] = input.value
         })
-
+        
     
-       const request = await createUser(newUser)
-       localStorage.setItem('@kenziePet:cadastro', JSON.stringify(request))
+       //const request = await createUser(newUser)
+       //localStorage.setItem('@kenziePet:cadastro', JSON.stringify(request))
     })
     
     return newUser

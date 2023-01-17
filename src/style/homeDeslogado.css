@@ -48,16 +48,15 @@ header{
 }
 
 .Card_pet{
-    height: 272px;
+    height: 260px;
     width: 200px;
     list-style: none;
-    border-radius: 4px;
     background-color: var(--color-Branco);
    
 }
 
 .Img_Pet{
-    width: 200px;
+    width: 210x;
     height: 150px;
     border-radius: 4px;
 
