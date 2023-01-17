@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root {
+    --color-Roxo: #4E2096;
+    --color-Roxo-claro: #B48CF2;
+    --color-Verde: #33CC66;
+    --color-Branco:  #ffffff;
+    --color-Preto: #000000;
+    --color-Cinza: #90A4AE;
+    --color-Vermelho: #EA534A;
+
+   
+    --color-Cinza-1:  #212529;
+    --color-Cinza-2:  #343a40;
+    --color-Cinza-3:  #dee2e6;
+    --color-Cinza-4:  #e9ecef;
+    --color-Cinza-5:  #f1f3f5;
+    --color-Branco:  #ffffff;
+    
+    --radius-default: 0.5rem;
+  
+    --title-1: 3rem;
+    --title-2: 2.5rem;
+    --title-3: 2rem;
+    --title-4: 1.5rem;
+    --title-5: 1.125rem;
+  
+    --text-1:  1.125rem;
+    --text-2:  1rem;
+    --text-3:  0.875rem;
+}
+  
