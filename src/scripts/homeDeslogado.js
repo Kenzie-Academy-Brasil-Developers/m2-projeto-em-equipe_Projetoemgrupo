@@ -1,40 +1,78 @@
-import { createUser } from "./requests.js"
+import { createUser, loginUser } from "./requests.js";
 
-function openModalCadastro(){
-    const buttonRegister = document.querySelector('.Botao_Register')
-    const modal = document.querySelector('.Modal_Cadastro')
-    const buttonCloseModal = document.querySelector('.Fecha_Modal')
+function openModalCadastro() {
+    const buttonRegister = document.querySelector(".Botao_Register");
+    const modal = document.querySelector(".Modal_Cadastro");
+    const buttonCloseModal = document.querySelector(".Fecha_Modal");
 
-    buttonRegister.addEventListener('click', () =>{
-        modal.showModal()
-    })
+    buttonRegister.addEventListener("click", () => {
+        modal.classList.add("showModal");
+        modal.showModal();
+    });
 
-    buttonCloseModal.addEventListener('click', () =>{
-        modal.showModal()
-    })
+    buttonCloseModal.addEventListener("click", () => {
+        modal.classList.remove("showModal");
+        modal.close();
+    });
 }
 
-openModalCadastro()
+openModalCadastro();
 
-function createUserForm(){
-    const inputs = document.querySelectorAll('.Input_Cadastrar')
-    const button = document.querySelector('.Cadastrar')
-    
-    const newUser = {}
+function createUserForm() {
+    const inputs = document.querySelectorAll(".Input_Cadastrar");
+    const button = document.querySelector(".Cadastrar");
 
-    button.addEventListener('click', async (event) => {
-        event.preventDefault()
-        
-        inputs.forEach(input => {
-            newUser[input.name] = input.value
-        })
-        
-    
-       //const request = await createUser(newUser)
-       //localStorage.setItem('@kenziePet:cadastro', JSON.stringify(request))
-    })
-    
-    return newUser
+    const newUser = {};
+
+    button.addEventListener("click", async (event) => {
+        event.preventDefault();
+
+        inputs.forEach((input) => {
+            newUser[input.name] = input.value;
+        });
+
+        const request = await createUser(newUser);
+        localStorage.setItem("@kenziePet:cadastro", JSON.stringify(request));
+    });
+
+    return newUser;
 }
 
-createUserForm()
+createUserForm();
+
+// Login Gabriel
+function openModalLogin() {
+    const loginBtn = document.querySelector(".Botao_Login");
+    const modalLogin = document.querySelector(".Modal_Login");
+    const closeModalBtn = document.querySelector(".closeLoginModal_Btn");
+
+    loginBtn.addEventListener("click", () => {
+        modalLogin.classList.add("showModal");
+        modalLogin.showModal();
+    });
+
+    closeModalBtn.addEventListener("click", () => {
+        modalLogin.classList.remove("showModal");
+        modalLogin.close();
+    });
+}
+openModalLogin();
+
+async function eventLogin() {
+    // const form = document.querySelector(".Login_Form");
+    const loginBtn = document.querySelector(".Login_Btn");
+
+    const elements = document.querySelectorAll(".Login_Form>input");
+    // console.log(elements);
+    loginBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const body = {};
+
+        elements.forEach((element) => {
+            body[element.name] = element.value;
+        });
+
+        await loginUser(body);
+    });
+}
+eventLogin();
