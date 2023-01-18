@@ -45,7 +45,7 @@ function openModalLogin() {
     const loginBtn = document.querySelector(".Botao_Login");
     const modalLogin = document.querySelector(".Modal_Login");
     const closeModalBtn = document.querySelector(".closeLoginModal_Btn");
-
+    
     loginBtn.addEventListener("click", () => {
         modalLogin.classList.add("showModal");
         modalLogin.showModal();
@@ -76,3 +76,39 @@ async function eventLogin() {
     });
 }
 eventLogin();
+
+function redirecionaLogin(){
+    const ancoraCadastro = document.querySelector('.redireciona_loguin')
+    const modal = document.querySelector(".Modal_Cadastro");
+    const modalLogin = document.querySelector(".Modal_Login");
+    
+
+    ancoraCadastro.addEventListener("click", () => {
+        modal.classList.remove("showModal");
+        modal.close();
+
+       modalLogin.classList.add("showModal");
+        modalLogin.showModal();
+    });
+
+    
+}
+redirecionaLogin()
+
+function redirecionaCadastro(){
+    const ancoraLogin = document.querySelector('.anchor_register')
+    const modal = document.querySelector(".Modal_Login");
+    const modalCadastro = document.querySelector(".Modal_Cadastro");
+    
+
+    ancoraLogin.addEventListener("click", () => {
+        modal.classList.remove("showModal");
+        modal.close();
+
+        modalCadastro.classList.add("showModal");
+        modalCadastro.showModal();
+    });
+
+      
+}
+redirecionaCadastro()
