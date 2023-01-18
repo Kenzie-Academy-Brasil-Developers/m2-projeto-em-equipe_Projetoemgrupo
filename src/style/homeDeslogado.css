@@ -1,21 +1,31 @@
-body{
-    font-family: 'Open Sans', sans-serif;
+body {
+    font-family: "Open Sans", sans-serif;
     min-height: 100vh;
 }
 
-header{
-    margin: 1rem 2%;
+header {
+    padding-top: 10px;
+
+    width: 100%;
+    height: 80px;
+
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-.container_Cabecalho{
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   gap: 1rem;
+.container_Cabecalho {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
-.Botao_Register{
+.Botao_Register {
     color: var(--color-Roxo);
     border: 1px solid var(--color-Roxo);
     background-color: var(--color-Branco);
@@ -25,7 +35,7 @@ header{
     cursor: pointer;
 }
 
-.Botao_Login{
+.Botao_Login {
     color: var(--color-Branco);
     background-color: var(--color-Roxo);
     padding: 4px 1.5rem;
@@ -34,75 +44,94 @@ header{
     cursor: pointer;
 }
 
-.container_Principal{
-    margin: 107px 0 0 0;
-    padding: 0 11%;
+.container_Principal {
+    margin: 50px 0;
+    /* margin: 107px 0 0 0; */
+    /* padding: 0 11%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.Lista_Pets{
+.Lista_Pets {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 4rem;
+
+    padding: 0;
+    margin-bottom: 20px;
+    max-width: 800px;
 }
 
-.Card_pet{
+.Card_pet {
     height: 260px;
     width: 200px;
     list-style: none;
     background-color: var(--color-Branco);
-   
-}
-
-.Img_Pet{
-    width: 210x;
-    height: 150px;
+    box-shadow: 0px 0px 5px rgba(78, 32, 150, 0.25);
     border-radius: 4px;
-
 }
 
-.Nome_Pet{
+.Img_Pet {
+    width: 100%;
+    /* height: 150px; */
+    border-radius: 4px;
+}
+
+.Nome_Pet {
     color: var(--color-Roxo);
-    font-weight: 700px;
+
+    font-weight: var(--bold-weigth);
+    font-size: var(--title-4);
+
     margin: 1rem 0 0 0;
+    padding-left: var(--text-2);
 }
 
-.Especie_Pet{
-    font-weight: 600;
+.Especie_Pet {
+    font-weight: var(--semiBold-weigth);
+    font-size: 12px;
+
     color: var(--color-Cinza);
+
+    padding-left: var(--text-2);
     margin: 0;
 }
 
-.container_Rodape{
-    
+.container_Rodape {
+    width: 100%;
+    height: 48px;
+    background-color: var(--footer-color);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    margin: 13rem 0 0 0;
-    
+    justify-content: center;
 }
 
-.Direitos_Rezervados{
-    font-weight: 400;
+.Direitos_Rezervados {
     font-size: 12px;
+
     color: var(--color-Roxo);
-    position: absolute;
 }
 
-@media(min-width: 405px){
-    .container_Cabecalho{
+@media (min-width: 405px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .container_Cabecalho {
+        padding: 0 5% 0 5%;
         display: flex;
         flex-direction: inherit;
         align-items: center;
         justify-content: space-between;
     }
-
 }
-
-@media(min-width: 1339px){
-    .container_Principal{
-        padding: 0 15%;
+@media (min-width: 1000px) {
+    .container_Rodape {
+        position: fixed;
+        bottom: 0;
     }
-
 }
