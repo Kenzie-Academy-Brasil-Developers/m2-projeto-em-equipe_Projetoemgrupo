@@ -73,7 +73,7 @@ async function petList() {
 async function atualizationImg(id, body) {
     const user = getUser();
 
-    const { token } = user;
+    const token = user;
 
     const consomeApi = await fetch(`http://localhost:3333/pets/${id}`, {
         method: "PATCH",
