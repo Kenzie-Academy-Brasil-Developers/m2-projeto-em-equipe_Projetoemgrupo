@@ -45,3 +45,44 @@ export async function loginUser(dataLogin) {
         console.log(err);
     }
 }
+
+
+//Vitor
+export async function updateProfile(data){
+    const update = await fetch("http://localhost:3333/users/profile",{
+        method: "PACTH",
+        headers: {
+            "content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(data),
+    })
+
+    const updateJson = await update.json()
+
+    if(!updateJson.ok){
+        alert("ERRO AO ATUALIZAR PERFIL")
+    }else{
+        alert("PERFIL ATUALIZADO")
+    }
+
+    return updateJson
+
+}
+
+//Vitor
+
+export async function deleteProfile(){
+    const deleteUser = await fetch('http://localhost:3333/users/profile',{
+        method: "DELETE",
+        headers: { "Authorization": `Bearer ${token}`
+        }
+    })
+        if(!deleteUser.ok){
+            alert("ERRO AO DELETAR PERFIL")
+        }else{
+            alert("PERFIL DELETADO")
+            window.location.replace("../homeDeslogado.html")
+        }
+
+}
