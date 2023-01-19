@@ -1,6 +1,6 @@
 //Bruno-- cadastro e atualização de pet
 function getUser() {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("token"));
   return user;
 }
 
