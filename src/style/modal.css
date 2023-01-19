@@ -1,119 +1,124 @@
 dialog::backdrop {
-    background-color: rgba(27, 28, 30, 0.65);
+  background-color: rgba(27, 28, 30, 0.65);
 }
 .showModal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 dialog {
-    width: 100%;
-    height: 60%;
-    max-height: 380px;
+  width: 100%;
+  height: 60%;
+  max-height: 380px;
 
-    border: none;
-    border-radius: var(--radius-inputs);
+  border: none;
+  border-radius: var(--radius-inputs);
 }
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 
-    width: 90%;
-    max-width: 240px;
+  width: 90%;
+  max-width: 240px;
 
-    /* margin-top: 4rem; */
+  /* margin-top: 4rem; */
 }
 form > h2 {
-    color: var(--color-Roxo);
+  color: var(--color-Roxo);
 
-    font-size: var(--title-4);
-    font-weight: var(--bold-weigth);
+  font-size: var(--title-4);
+  font-weight: var(--bold-weigth);
 }
 .divCloseBtn {
-    background-color: var(--color-Roxo);
+  background-color: var(--color-Roxo);
 
-    height: 42px;
-    min-width: 100%;
+  height: 42px;
+  min-width: 100%;
 
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 
-    position: absolute;
-    top: 0;
-
-    
+  position: absolute;
+  top: 0;
 }
 .Fecha_Modal {
-    margin-right: 15px;
+  margin-right: 15px;
 
-    padding: 2px 8px 3px 8px;
-    font-size: var(--title-5);
+  padding: 2px 8px 3px 8px;
+  font-size: var(--title-5);
 
-    background-color: var(--color-Roxo);
-    color: var(--color-Branco);
+  background-color: var(--color-Roxo);
+  color: var(--color-Branco);
 
-    border: 2px solid var(--color-Branco);
-    border-radius: 100%;
+  border: 2px solid var(--color-Branco);
+  border-radius: 100%;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 input {
-    background-color: white;
+  background-color: white;
 
-    padding-left: 10px;
+  padding-left: 10px;
 
-    border: 1px solid var(--color-Roxo-claro);
-    border-radius: var(--radius-inputs);
+  border: 1px solid var(--color-Roxo-claro);
+  border-radius: var(--radius-inputs);
 
-    height: 27px;
+  height: 27px;
 }
 input::placeholder {
-    color: var(--color-Roxo-claro);
-    font-size: var(--text-4);
+  color: var(--color-Roxo-claro);
+  font-size: var(--text-4);
 }
 .importantBtn {
-    background-color: var(--color-Roxo);
-    color: var(--color-Branco);
+  background-color: var(--color-Roxo);
+  color: var(--color-Branco);
 
-    border: none;
-    border-radius: var(--radius-inputs);
-    padding: 6px;
-
-    font-size: var(--text-3);
+  border: none;
+  border-radius: var(--radius-inputs);
+  padding: 6px;
+  cursor: pointer;
+  font-size: var(--text-3);
 }
 span {
-    font-size: var(--text-5);
+  font-size: var(--text-5);
 }
 .redireciona_loguin {
-    text-decoration: none;
-    color: var(--color-Roxo);
-    cursor: pointer;
+  text-decoration: none;
+  color: var(--color-Roxo);
+  cursor: pointer;
 }
 
-.anchor_register{
-    text-decoration: none;
-    color: var(--color-Roxo);
-    cursor: pointer;
+.anchor_register {
+  text-decoration: none;
+  color: var(--color-Roxo);
+  cursor: pointer;
 }
 .purpleLine {
-    background-color: var(--color-Roxo);
-    width: 100%;
-    height: 12px;
-    position: absolute;
-    bottom: 0;
+  background-color: var(--color-Roxo);
+  width: 100%;
+  height: 12px;
+  position: absolute;
+  bottom: 0;
+}
+.dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 49px;
 }
 @media (min-width: 550px) {
-    dialog {
-        width: 520px;
-    }
-    form > h2 {
-        font-size: var(--title-3);
-        text-align: center;
-    }
-    span {
-        text-align: center;
-    }
+  dialog {
+    width: 520px;
+  }
+
+  form > h2 {
+    font-size: var(--title-3);
+    text-align: center;
+  }
+  span {
+    text-align: center;
+  }
 }
