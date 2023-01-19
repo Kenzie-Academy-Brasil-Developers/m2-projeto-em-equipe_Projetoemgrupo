@@ -1,3 +1,77 @@
+.All-pets {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  #register {
+    background-color: var(--color-Verde);
+    color: white;
+    border: none;
+    width: 193px;
+    height: 31px;
+    border-radius: 14px;
+    margin: 30px 0;
+    cursor: pointer;
+    margin-left: 98px;
+  }
+  .pet {
+    height: 200px;
+    width: 480px;
+    border: solid 1px rgba(78, 32, 150, 0.25);
+    border-radius: 4px;
+    display: flex;
+    gap: 20px;
+    transition: linear 0.4s;
+  }
+  .pet-avatar {
+    width: 44%;
+  }
+  .pet-avatar > img {
+    width: 100%;
+    height: 100%;
+    transition: linear 0.4s;
+  }
+  .pet-info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 14px;
+  }
+  #refresh {
+    background-color: var(--color-Roxo);
+    color: white;
+    height: 30px;
+    border: none;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: linear 0.4s;
+  }
+  .infos {
+    color: var(--color-Roxo);
+    font-weight: bold;
+  }
+  .list-pets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+  }
+  #refresh:hover {
+    transform: scale(1.15);
+    background-color: var(--color-Verde);
+  }
+  #register:hover {
+    border: 2px solid var(--color-Roxo);
+    color: var(--color-Roxo);
+  }
+  .pet:hover {
+    border: 1px solid var(--color-Verde);
+    transform: scale(1.1);
+  }
+  
 body {
     font-family: "Open Sans", sans-serif;
     min-height: 100vh;
