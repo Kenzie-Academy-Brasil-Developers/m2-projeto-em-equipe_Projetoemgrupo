@@ -1,16 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../style/global.css">
-    <link rel="stylesheet" href="../style/modal.css">
-    <link rel="stylesheet" href="../style/homeLogado.css">
-</head>
-<body>
-    
-    <script src="../scripts/homeLogado.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../style/global.css" />
+        <link rel="stylesheet" href="../style/modal.css" />
+        <link rel="stylesheet" href="../style/homeLogado.css" />
+    </head>
+    <body>
+        <header>
+            <nav class="container_Cabecalho">
+                <img src="/src/assets/Logo.svg" alt="" />
+                <div class="Botoes">
+                    <button class="Botao_Profile">Profile</button>
+                    <button class="Botao_Logout">Logout</button>
+                </div>
+            </nav>
+        </header>
+
+        <main class="container_Principal">
+            <ul class="Lista_Pets">
+                <li class="Card_pet">
+                    <img class="Img_Pet" src="/src/assets/Bidu.svg" alt="" />
+                    <h2 class="Nome_Pet">Bidu</h2>
+                    <p class="Especie_Pet">Cachorro</p>
+                </li>
+                <li class="Card_pet">
+                    <img class="Img_Pet" src="/src/assets/Mingau.svg" alt="" />
+                    <h2 class="Nome_Pet">Mingau</h2>
+                    <p class="Especie_Pet">Gato</p>
+                </li>
+                <li class="Card_pet">
+                    <img
+                        class="Img_Pet"
+                        src="/src/assets/Frajola.svg"
+                        alt=""
+                    />
+                    <h2 class="Nome_Pet">Frajola</h2>
+                    <p class="Especie_Pet">Gato</p>
+                </li>
+                <li class="Card_pet">
+                    <img class="Img_Pet" src="/src/assets/Toby.svg" alt="" />
+                    <h2 class="Nome_Pet">Toby</h2>
+                    <p class="Especie_Pet">Cachorro</p>
+                </li>
+                <li class="Card_pet">
+                    <img class="Img_Pet" src="/src/assets/Bob.svg" alt="" />
+                    <h2 class="Nome_Pet">Bob</h2>
+                    <p class="Especie_Pet">Cachorro</p>
+                </li>
+                <li class="Card_pet">
+                    <img class="Img_Pet" src="/src/assets/Tom.svg" alt="" />
+                    <h2 class="Nome_Pet">Tom</h2>
+                    <p class="Especie_Pet">Gato</p>
+                </li>
+            </ul>
+                </form>
+            </dialog>
+            <dialog class="Modal_Login">
+                <div class="divCloseBtn">
+                    <button class="Fecha_Modal closeLoginModal_Btn">X</button>
+                </div>
+
+                <form class="Login_Form">
+                    <h2 class="modal_login">Login</h2>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="E-mail"
+                        class="Input_Login"
+                    />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Senha"
+                        class="Input_Login"
+                    />
+
+                    <button class="Login_Btn importantBtn">Entrar</button>
+                    <span
+                        >Não tem cadastro?
+                        <span class="anchor_register">Clique aqui</span> para
+                        se cadastrar.</span
+                    >
+                </form>
+                <div class="purpleLine"></div>
+            </dialog>
+        </main>
+
+        <footer class="container_Rodape">
+            <p class="Direitos_Rezervados">
+                KenziePets | Todos os Direitos Reservados
+            </p>
+        </footer>
+        <script type="module" src="../scripts/homeLogado.js"></script>
+    </body>
 </html>
