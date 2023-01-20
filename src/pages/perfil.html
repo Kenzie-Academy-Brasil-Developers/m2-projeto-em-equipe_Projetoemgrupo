@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="../style/global.css" />
         <link rel="stylesheet" href="../style/modal.css" />
         <link rel="stylesheet" href="../style/perfil.css" />
-        <link rel="stylesheet" href="../style/delete-update.css" />
         <title>Document</title>
     </head>
     <body>
@@ -28,6 +27,7 @@
                 <ul class="list-pets"></ul>
             </div>
         </section>
+
         <dialog id="Modal__Cadastro" class="Modal_Cadastro">
             <div class="dialog">
                 <div class="divCloseBtn">
@@ -123,77 +123,67 @@
                 <div class="purpleLine"></div>
             </div>
         </dialog>
+
+        <dialog class="modal_AttProfile">
+            <div class="dialog">
+                <div class="divCloseBtn">
+                    <button class="Fecha_Modal closeAttModal_btn">X</button>
+                </div>
+
+                <form class="Login_Form">
+                    <h2 class="modal_login">Atualizar Perfil</h2>
+                    <input
+                        type="text"
+                        name="name"
+                        id="nameProfile"
+                        placeholder="Nome"
+                        class="Input_Login"
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="avatar_url"
+                        id="avatarProfile"
+                        placeholder="avatar"
+                        class="Input_Login"
+                        required
+                    />
+
+                    <button
+                        type="submit"
+                        class="AttBtn importantBtn"
+                        id="atualizarProfile"
+                    >
+                        Atualizar
+                    </button>
+                </form>
+                <div class="purpleLine"></div>
+            </div>
+        </dialog>
+
+        <dialog class="modal_deleteProfile">
+            <div class="dialog">
+                <div class="divCloseBtn">
+                    <button class="Fecha_Modal closeDeleteModal_Btn">X</button>
+                </div>
+
+                    <h2 class="modal_login">Deseja mesmo deletar sua conta?</h2>
+                    <button class="deleteProfile importantBtn">Deletar minha conta</button>
+                    <button
+                        class="notDeleteBtn redBtn"
+                        id="notDelete"
+                    >
+                        Não deletar minha conta
+                    </button>
+                </form>
+                <div class="purpleLine"></div>
+            </div>
+
         <footer class="container_Rodape">
             <p class="Direitos_Rezervados">
                 KenziePets | Todos os Direitos Reservados
             </p>
         </footer>
-
-        <dialog class="modal-wrapper modal-updateProfile" id="modal-criar">
-            <div class="modal-criar">
-                <div class="header-modal">
-                    <button
-                        class="divCloseBtn"
-                        data-control-modal="modal-criar"
-                    >
-                        X
-                    </button>
-                </div>
-                <h1>Atualizar Perfil</h1>
-                <form id="atualizarPerfil">
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Nome"
-                        id="nameProfile"
-                    />
-                    <input
-                        type="text"
-                        name="avatar_url"
-                        placeholder="Avatar"
-                        id="avatarProfile"
-                    />
-                    <button id="atualizarProfile" class="btn-criar">
-                        Atualizar
-                    </button>
-                </form>
-            </div>
-        </dialog>
-        <!-- <div class="modal-wrapper" id="modal-criar">
-            <div class="modal-criar">
-                <div class="header-modal">
-                    <button
-                        class="divCloseBtn"
-                        data-control-modal="modal-criar"
-                    >
-                        X
-                    </button>
-                </div>
-                <h1>Atualizar Perfil</h1>
-                <form id="atualizarPerfil">
-                    <input type="text" name="name" placeholder="Nome" />
-                    <input type="text" name="email" placeholder="Email" />
-                    <input type="text" name="avatar_url" placeholder="Avatar" />
-                    <button id="atualizar" class="btn-criar">Atualizar</button>
-                </form>
-            </div>
-        </div> -->
-
-        <!-- <div class="modal-wrapper" id="modal-criar">
-            <div class="modal-criar">
-                <div class="header-modal">
-                    <button
-                        class="divCloseBtn"
-                        data-control-modal="modal-criar"
-                    >
-                        X
-                    </button>
-                </div>
-                <h1>Deseja mesmo deletar sua conta?</h1>
-                <button>Não desejo deletar minha conta</button>
-                <button id="delete">Quero deletar minha conta</button>
-            </div>
-        </div> -->
 
         <script type="module" src="../scripts/perfil.js"></script>
     </body>

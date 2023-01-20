@@ -1,7 +1,4 @@
 /* A cada Requisição coloque um comentário informando quem fez*/
-
-import { renderProfile, getUser } from "./perfil.js";
-
 //Gedson
 export async function createUser(data) {
     const creatUserData = await fetch(`http://localhost:3333/users`, {
@@ -48,7 +45,6 @@ export async function loginUser(dataLogin) {
     }
 }
 
-// Equipe
 export async function profilePage() {
     const tokenJson = localStorage.getItem("token");
     const token = JSON.parse(tokenJson);
@@ -64,54 +60,15 @@ export async function profilePage() {
     return response;
 }
 
-//Vitor
-//Atualizar Perfil
-export async function updateProfile(data) {
-    const update = await fetch("http://localhost:3333/users/profile", {
-        method: "PACTH",
-        headers: {
-            "content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(data),
-    });
-
-    const updateJson = await update.json();
-
-    if (!updateJson.ok) {
-        alert("ERRO AO ATUALIZAR PERFIL");
-    } else {
-        alert("PERFIL ATUALIZADO");
-    }
-
-    return updateJson;
-}
-
-//Vitor
-//Deletar perfil
 export async function deleteProfile() {
+    const tokenJson = localStorage.getItem("token");
+    const token = JSON.parse(tokenJson);
     const deleteUser = await fetch("http://localhost:3333/users/profile", {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
     });
-    if (!deleteUser.ok) {
-        alert("ERRO AO DELETAR PERFIL");
-    } else {
-        alert("PERFIL DELETADO");
-        window.location.replace("../index.html");
+    if (deleteUser.ok) {
+        localStorage.clear();
+        window.location.replace("../../index.html");
     }
-}
-
-export async function consomeUpdateProfile(data) {
-    const user = getUser();
-    const token = user;
-    const atualizando = await fetch(`http://localhost:3333/users/profile`, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(data),
-    });
-    return atualizando;
 }

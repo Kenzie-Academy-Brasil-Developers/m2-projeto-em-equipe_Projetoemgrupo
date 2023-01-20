@@ -1,67 +1,5 @@
 // Bruno-- cadastro e atualização de pet
-import { updateProfile, deleteProfile } from "./requests.js";
-
-//Vitor
-//Atualizar Perfil
-import { consomeUpdateProfile } from "./requests.js";
-
-async function updateProfileForm() {
-    // const user = await renderProfile();
-    // const { name, avatar_url } = user;
-    // const inputs = document.querySelectorAll("Form > input");
-    // const btnUpdate = document.getElementById("btnUpdate");
-    // const updateUser = {};
-
-    // inputs.forEach((input) => {
-    //     if (input.name == "name") {
-    //         input.value = name;
-    //     } else if (input.name == "avatar_url") {
-    //         input.value = avatar_url;
-    //     }
-    // });
-
-    // btnUpdate.addEventListener("click", async (event) => {
-    //     event.preventDefault();
-
-    //     inputs.forEach((input) => {
-    //         updateUser[input.name] = input.value;
-    //     });
-
-    //     if (updateUser.avatar_url == avatar_url || updateUser == "") {
-    //         delete updateUser.avatar_url;
-    //     }
-
-    //     renderProfile(await updateProfile(updateUser));
-    // });
-    const nameProfile = document.querySelector("#nameProfile");
-    const avatarProfile = document.querySelector("#avatarProfile");
-    const btnProfileAtt = document.querySelector("#atualizarProfile");
-    btnProfileAtt.addEventListener("click", async (event) => {
-        event.preventDefault();
-        const data = {
-            name: nameProfile.value,
-            avatar_url: avatarProfile.value,
-        };
-        const request = await consomeUpdateProfile(data);
-
-        // return request;
-    });
-}
-
-async function deleteUser() {
-    const btnDelete = document.getElementById("delete");
-
-    btnDelete.addEventListener("click", async (event) => {
-        event.preventDefault;
-
-        deleteProfile();
-    });
-}
-deleteUser();
-
-updateProfileForm();
-//Bruno-- cadastro e atualização de pet
-export function getUser() {
+function getUser() {
     const user = JSON.parse(localStorage.getItem("token"));
     // console.log(user);
     return user;
@@ -81,7 +19,7 @@ function modalRegister() {
 
 async function petList() {
     const user = getUser();
-    const { token } = user;
+    const token = user;
 
     const list = await fetch(`http://localhost:3333/pets`, {
         method: "GET",
@@ -170,7 +108,7 @@ async function renderPets() {
                 };
 
                 const responseAvatar = await atualizationImg(idCard, data);
-                console.log(responseAvatar);
+                // console.log(responseAvatar);
                 if (responseAvatar.status == 200) {
                     alert("Atualizado com sucesso");
                     window.location.replace("../pages/perfil.html");
@@ -231,16 +169,35 @@ renderPets();
 cadastroPet();
 modalRegister();
 
-import { profilePage } from "./requests.js";
-//import{logout} from "./homeLogado.js"
+function backHome() {
+    if (window.location.pathname == "/src/pages/perfil.html") {
+        const button = document.querySelector(".Botao_Home");
+        button.addEventListener("click", () => {
+            window.location.replace("homeLogado.html");
+        });
+    }
+}
+backHome();
 
-// console.log(profilePage);
+function logout() {
+    if (window.location.pathname == "/src/pages/perfil.html") {
+        const button = document.querySelector(".Botao_Logout");
+        button.addEventListener("click", () => {
+            localStorage.removeItem("@kenziePet:cadastro");
+            window.location.replace("/index.html");
+        });
+    }
+}
+logout();
+
+import { profilePage, deleteProfile } from "./requests.js";
 
 export async function renderProfile() {
     const requestProfilePage = await profilePage();
     // console.log(requestProfilePage);
     const main = document.querySelector(".main_perfil");
 
+    main.innerHTML = "";
     main.insertAdjacentHTML(
         "beforeend",
         `
@@ -267,34 +224,75 @@ export async function renderProfile() {
         </div>
         `
     );
-    const dialog = document.querySelector(".modal-wrapper");
-    const btnOpen = document.querySelector("#btnUpdate");
-    btnOpen.addEventListener("click", () => {
-        console.log(dialog);
-        dialog.showModal();
+
+    const dialogModal = document.querySelector(".modal_AttProfile");
+    const btnUpdateOpen = document.querySelector("#btnUpdate");
+    btnUpdateOpen.addEventListener("click", () => {
+        dialogModal.showModal();
+    });
+    const btnCloseModalAtt = document.querySelector(".closeAttModal_btn");
+    btnCloseModalAtt.addEventListener("click", () => {
+        dialogModal.close();
     });
 
+    const deleteBtnModal = document.querySelector("#delete");
+    const modalDeleteProfile = document.querySelector(".modal_deleteProfile");
+    deleteBtnModal.addEventListener("click", () => {
+        modalDeleteProfile.showModal();
+    });
+
+    const closeDeleteModalBtn = document.querySelector(".closeDeleteModal_Btn");
+    closeDeleteModalBtn.addEventListener("click", () => {
+        modalDeleteProfile.close();
+    });
+
+    const deleteMyAcc = document.querySelector(".deleteProfile");
+    deleteMyAcc.addEventListener("click", () => {
+        alert("Conta deletada com sucesso!");
+        deleteProfile();
+    });
+    const notDeleteBtn = document.querySelector(".notDeleteBtn");
+    notDeleteBtn.addEventListener("click", () => {
+        alert("Obrigado por não deletar sua conta!");
+        modalDeleteProfile.close();
+    });
     return main;
 }
 renderProfile();
 
-function backHome() {
-    if (window.location.pathname == "/src/pages/perfil.html") {
-        const button = document.querySelector(".Botao_Home");
-        button.addEventListener("click", () => {
-            window.location.replace("homeLogado.html");
-        });
-    }
+async function consomeUpdateProfile(data) {
+    const user = getUser();
+    const token = user;
+    const atualizando = await fetch(`http://localhost:3333/users/profile`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+    });
+    return atualizando;
 }
-backHome();
 
-function logout() {
-    if (window.location.pathname == "/src/pages/perfil.html") {
-        const button = document.querySelector(".Botao_Logout");
-        button.addEventListener("click", () => {
-            localStorage.removeItem("@kenziePet:cadastro");
-            window.location.replace("/index.html");
-        });
-    }
+async function updateProfileForm() {
+    const nameProfile = document.querySelector("#nameProfile");
+    const avatarProfile = document.querySelector("#avatarProfile");
+    const btnProfileAtt = document.querySelector("#atualizarProfile");
+
+    btnProfileAtt.addEventListener("click", async (event) => {
+        event.preventDefault();
+        const data = {
+            name: nameProfile.value,
+            avatar_url: avatarProfile.value,
+        };
+        const request = await consomeUpdateProfile(data);
+        if (request.status == 200) {
+            alert("Atualizado com sucesso");
+            window.location.replace("../pages/perfil.html");
+        } else {
+            alert("Informação de atualização incompleta");
+        }
+        return request;
+    });
 }
-logout();
+updateProfileForm();
