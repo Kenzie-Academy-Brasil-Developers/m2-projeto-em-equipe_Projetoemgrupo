@@ -30,61 +30,74 @@ export async function loginUser(dataLogin) {
             body: JSON.stringify(dataLogin),
         });
         let requestJson = await request.json();
-            console.log(requestJson)
+        // console.log(requestJson);
         if (requestJson.token) {
             localStorage.setItem("token", JSON.stringify(requestJson.token));
             // console.log("logou");
 
             window.location.replace("./src/pages/homeLogado.html");
             return requestJson;
-
         } else {
             console.log(requestJson.message);
         }
     } catch (err) {
         console.log(err);
     }
-    
 }
 
+//Diogo
+
+// import { renderProfile } from "./perfil.js";
+
+// export async function ProfilePage() {
+//     const tokenJson = localStorage.getItem("token");
+//     const token = JSON.parse(tokenJson);
+
+//     const request = await fetch("http://localhost:3333/users/profile", {
+//         method: "GET",
+//         headers: {
+//             "Content-Type": "application/json",
+//             Authorization: `Bearer ${token}`,
+//         },
+//     });
+//     const requestJSON = await request.json();
+//     renderProfile(requestJSON);
+// }
 
 //Vitor
 //Atualizar Perfil
-export async function updateProfile(data){
-    const update = await fetch("http://localhost:3333/users/profile",{
+export async function updateProfile(data) {
+    const update = await fetch("http://localhost:3333/users/profile", {
         method: "PACTH",
         headers: {
             "content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
+            Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(data),
-    })
+    });
 
-    const updateJson = await update.json()
+    const updateJson = await update.json();
 
-    if(!updateJson.ok){
-        alert("ERRO AO ATUALIZAR PERFIL")
-    }else{
-        alert("PERFIL ATUALIZADO")
+    if (!updateJson.ok) {
+        alert("ERRO AO ATUALIZAR PERFIL");
+    } else {
+        alert("PERFIL ATUALIZADO");
     }
 
-    return updateJson
-
+    return updateJson;
 }
 
 //Vitor
 //Deletar perfil
-export async function deleteProfile(){
-    const deleteUser = await fetch('http://localhost:3333/users/profile',{
+export async function deleteProfile() {
+    const deleteUser = await fetch("http://localhost:3333/users/profile", {
         method: "DELETE",
-        headers: { "Authorization": `Bearer ${token}`
-        }
-    })
-        if(!deleteUser.ok){
-            alert("ERRO AO DELETAR PERFIL")
-        }else{
-            alert("PERFIL DELETADO")
-            window.location.replace("../homeDeslogado.html")
-        }
-
+        headers: { Authorization: `Bearer ${token}` },
+    });
+    if (!deleteUser.ok) {
+        alert("ERRO AO DELETAR PERFIL");
+    } else {
+        alert("PERFIL DELETADO");
+        window.location.replace("../homeDeslogado.html");
+    }
 }

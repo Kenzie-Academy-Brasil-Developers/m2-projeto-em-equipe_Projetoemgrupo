@@ -1,132 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../style/reset.css" />
-    <link rel="stylesheet" href="../style/global.css" />
-    <link rel="stylesheet" href="../style/modal.css" />
-    <link rel="stylesheet" href="../style/perfil.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <header>
-      <nav class="container_Cabecalho">
-        <img src="/src/assets/Logo.svg" alt="" />
-        <div class="Botoes">
-          <button class="Botao_Home">Home</button>
-          <button class="Botao_Logout">Logout</button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../style/reset.css" />
+        <link rel="stylesheet" href="../style/global.css" />
+        <link rel="stylesheet" href="../style/modal.css" />
+        <link rel="stylesheet" href="../style/perfil.css" />
+        <link rel="stylesheet" href="../style/delete-update.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <nav class="container_Cabecalho">
+                <img src="/src/assets/Logo.svg" alt="" />
+                <div class="Botoes">
+                    <button class="Botao_Home">Home</button>
+                    <button class="Botao_Logout">Logout</button>
+                </div>
+            </nav>
+        </header>
+        <section class="All-pets">
+            <button id="register">Cadastro</button>
+            <div class="pets-box">
+                <ul class="list-pets"></ul>
+            </div>
+        </section>
+        <dialog id="Modal__Cadastro" class="Modal_Cadastro">
+            <div class="dialog">
+                <div class="divCloseBtn">
+                    <button class="Fecha_Modal">X</button>
+                </div>
+                <form class="Form_Cadastro">
+                    <h2 class="Título_Modal">Cadastrar Pet</h2>
+                    <input
+                        id="name"
+                        type="text"
+                        placeholder="Nome"
+                        class="Input_Cadastrar"
+                        required
+                    />
+                    <input
+                        id="raça"
+                        type="text"
+                        placeholder="raça"
+                        class="Input_Cadastrar"
+                        required
+                    />
+                    <input
+                        id="breed"
+                        type="text"
+                        placeholder="Qual esrpécie?"
+                        class="Input_Cadastrar"
+                        required
+                    />
+                    <input
+                        id="avatar"
+                        type="text"
+                        placeholder="Fotinha do animalzinho"
+                        class="Input_Cadastrar"
+                        required
+                    />
+                    <button
+                        id="register-pet"
+                        type="submit"
+                        class="Cadastrar importantBtn"
+                    >
+                        cadastrar
+                    </button>
+                </form>
+                <div class="purpleLine"></div>
+            </div>
+        </dialog>
+
+        <dialog class="Modal_Login">
+            <div class="dialog">
+                <div class="divCloseBtn">
+                    <button class="Fecha_Modal closeLoginModal_Btn">X</button>
+                </div>
+
+                <form class="Login_Form">
+                    <h2 class="modal_login">Atualizar</h2>
+                    <input
+                        type="text"
+                        name="name"
+                        id="new-name"
+                        placeholder="Nome"
+                        class="Input_Login"
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="raça"
+                        id="new-bread"
+                        placeholder="Raça"
+                        class="Input_Login"
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="especie"
+                        id="new-especie"
+                        placeholder="Espécie"
+                        class="Input_Login"
+                        required
+                    />
+                    <input
+                        id="new-avatar"
+                        type="text"
+                        name="email"
+                        placeholder="Atualizar avatar"
+                        class="Input_Login"
+                        required
+                    />
+
+                    <button type="submit" class="AttBtn importantBtn">
+                        Atualizar
+                    </button>
+                </form>
+                <div class="purpleLine"></div>
+            </div>
+        </dialog>
+        <footer class="container_Rodape">
+            <p class="Direitos_Rezervados">
+                KenziePets | Todos os Direitos Reservados
+            </p>
+        </footer>
+
+        <div class="modal-wrapper" id="modal-criar">
+            <div class="modal-criar">
+                <div class="header-modal">
+                    <button class="divCloseBtn" data-control-modal="modal-criar">X</button>
+                </div>
+                   <h1>Atualizar Perfil</h1>
+                   <form id="atualizarPerfil">
+                       <input type="text" name="name" placeholder="Nome">
+                       <input type="text" name="email" placeholder="Email">
+                       <input type="text" name="avatar_url" placeholder="Avatar">
+                        <button id="atualizar" class="btn-criar">Atualizar</button>
+                   </form>
+            </div>
         </div>
-      </nav>
-    </header>
-    <section class="All-pets">
-      <button id="register">Cadastro</button>
-      <div class="pets-box">
-        <ul class="list-pets"></ul>
-      </div>
-    </section>
-    <dialog id="Modal__Cadastro" class="Modal_Cadastro">
-      <div class="dialog">
-        <div class="divCloseBtn">
-          <button class="Fecha_Modal">X</button>
-        </div>
-        <form class="Form_Cadastro">
-          <h2 class="Título_Modal">Cadastrar Pet</h2>
-          <input
-            id="name"
-            type="text"
-            placeholder="Nome"
-            class="Input_Cadastrar"
-            required
-          />
-          <input
-            id="raça"
-            type="text"
-            placeholder="raça"
-            class="Input_Cadastrar"
-            required
-          />
-          <input
-            id="breed"
-            type="text"
-            placeholder="Qual esrpécie?"
-            class="Input_Cadastrar"
-            required
-          />
-          <input
-            id="avatar"
-            type="text"
-            placeholder="Fotinha do animalzinho"
-            class="Input_Cadastrar"
-            required
-          />
-          <button
-            id="register-pet"
-            type="submit"
-            class="Cadastrar importantBtn"
-          >
-            cadastrar
-          </button>
-        </form>
-        <div class="purpleLine"></div>
-      </div>
-    </dialog>
 
-    <dialog class="Modal_Login">
-      <div class="dialog">
-        <div class="divCloseBtn">
-          <button class="Fecha_Modal closeLoginModal_Btn">X</button>
+        <div class="modal-wrapper" id="modal-criar">
+            <div class="modal-criar">
+                <div class="header-modal">
+                    <button class="divCloseBtn" data-control-modal="modal-criar">X</button>
+                </div>
+                   <h1>Deseja mesmo deletar sua conta?</h1>
+                   <button>Não desejo deletar minha conta</button>
+                   <button id="delete">Quero deletar minha conta</button>
+               </div>
         </div>
 
-        <form class="Login_Form">
-          <h2 class="modal_login">Atualizar</h2>
-          <input
-            type="text"
-            name="name"
-            id="new-name"
-            placeholder="Nome"
-            class="Input_Login"
-            required
-          />
-          <input
-            type="text"
-            name="raça"
-            id="new-bread"
-            placeholder="Raça"
-            class="Input_Login"
-            required
-          />
-          <input
-            type="text"
-            name="especie"
-            id="new-especie"
-            placeholder="Espécie"
-            class="Input_Login"
-            required
-          />
-          <input
-            id="new-avatar"
-            type="text"
-            name="email"
-            placeholder="Atualizar avatar"
-            class="Input_Login"
-            required
-          />
-
-          <button type="submit" class="Login_Btn importantBtn">
-            Atualizar
-          </button>
-        </form>
-        <div class="purpleLine"></div>
-      </div>
-    </dialog>
-    <footer class="container_Rodape">
-      <p class="Direitos_Rezervados">
-        KenziePets | Todos os Direitos Reservados
-      </p>
-    </footer>
-
-    <script type="module" src="../scripts/perfil.js"></script>
-  </body>
+        <script type="module" src="../scripts/perfil.js"></script>
+    </body>
 </html>
