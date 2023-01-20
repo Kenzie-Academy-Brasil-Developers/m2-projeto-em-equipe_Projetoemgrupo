@@ -45,7 +45,7 @@ function openModalLogin() {
     const loginBtn = document.querySelector(".Botao_Login");
     const modalLogin = document.querySelector(".Modal_Login");
     const closeModalBtn = document.querySelector(".closeLoginModal_Btn");
-    
+
     loginBtn.addEventListener("click", () => {
         modalLogin.classList.add("showModal");
         modalLogin.showModal();
@@ -59,11 +59,9 @@ function openModalLogin() {
 openModalLogin();
 
 async function eventLogin() {
-    // const form = document.querySelector(".Login_Form");
     const loginBtn = document.querySelector(".Login_Btn");
 
     const elements = document.querySelectorAll(".Login_Form>input");
-    // console.log(elements);
     loginBtn.addEventListener("click", async (e) => {
         e.preventDefault();
         const body = {};
@@ -77,29 +75,25 @@ async function eventLogin() {
 }
 eventLogin();
 
-function redirecionaLogin(){
-    const ancoraCadastro = document.querySelector('.redireciona_loguin')
+function redirecionaLogin() {
+    const ancoraCadastro = document.querySelector(".redireciona_loguin");
     const modal = document.querySelector(".Modal_Cadastro");
     const modalLogin = document.querySelector(".Modal_Login");
-    
 
     ancoraCadastro.addEventListener("click", () => {
         modal.classList.remove("showModal");
         modal.close();
 
-       modalLogin.classList.add("showModal");
+        modalLogin.classList.add("showModal");
         modalLogin.showModal();
     });
-
-    
 }
-redirecionaLogin()
+redirecionaLogin();
 
-function redirecionaCadastro(){
-    const ancoraLogin = document.querySelector('.anchor_register')
+function redirecionaCadastro() {
+    const ancoraLogin = document.querySelector(".anchor_register");
     const modal = document.querySelector(".Modal_Login");
     const modalCadastro = document.querySelector(".Modal_Cadastro");
-    
 
     ancoraLogin.addEventListener("click", () => {
         modal.classList.remove("showModal");
@@ -108,8 +102,5 @@ function redirecionaCadastro(){
         modalCadastro.classList.add("showModal");
         modalCadastro.showModal();
     });
-
-      
 }
-redirecionaCadastro()
-
+redirecionaCadastro();

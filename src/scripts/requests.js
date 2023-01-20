@@ -1,4 +1,7 @@
 /* A cada Requisição coloque um comentário informando quem fez*/
+
+import { renderProfile, getUser } from "./perfil.js";
+
 //Gedson
 export async function createUser(data) {
     const creatUserData = await fetch(`http://localhost:3333/users`, {
@@ -45,24 +48,21 @@ export async function loginUser(dataLogin) {
     }
 }
 
-//Diogo
+// Equipe
+export async function profilePage() {
+    const tokenJson = localStorage.getItem("token");
+    const token = JSON.parse(tokenJson);
 
-// import { renderProfile } from "./perfil.js";
-
-// export async function ProfilePage() {
-//     const tokenJson = localStorage.getItem("token");
-//     const token = JSON.parse(tokenJson);
-
-//     const request = await fetch("http://localhost:3333/users/profile", {
-//         method: "GET",
-//         headers: {
-//             "Content-Type": "application/json",
-//             Authorization: `Bearer ${token}`,
-//         },
-//     });
-//     const requestJSON = await request.json();
-//     renderProfile(requestJSON);
-// }
+    const request = await fetch("http://localhost:3333/users/profile", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+    });
+    const response = await request.json();
+    return response;
+}
 
 //Vitor
 //Atualizar Perfil
@@ -100,4 +100,18 @@ export async function deleteProfile() {
         alert("PERFIL DELETADO");
         window.location.replace("../homeDeslogado.html");
     }
+}
+
+export async function consomeUpdateProfile(data) {
+    const user = getUser();
+    const token = user;
+    const atualizando = await fetch(`http://localhost:3333/users/profile`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+    });
+    return atualizando;
 }

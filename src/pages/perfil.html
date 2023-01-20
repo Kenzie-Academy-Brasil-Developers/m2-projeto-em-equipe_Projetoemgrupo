@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="../style/global.css" />
         <link rel="stylesheet" href="../style/modal.css" />
         <link rel="stylesheet" href="../style/perfil.css" />
-        <link rel="stylesheet" href="../style/delete-update.css">
+        <link rel="stylesheet" href="../style/delete-update.css" />
         <title>Document</title>
     </head>
     <body>
@@ -21,6 +21,7 @@
                 </div>
             </nav>
         </header>
+        <main class="main_perfil"></main>
         <section class="All-pets">
             <button id="register">Cadastro</button>
             <div class="pets-box">
@@ -128,31 +129,71 @@
             </p>
         </footer>
 
-        <div class="modal-wrapper" id="modal-criar">
+        <dialog class="modal-wrapper modal-updateProfile" id="modal-criar">
             <div class="modal-criar">
                 <div class="header-modal">
-                    <button class="divCloseBtn" data-control-modal="modal-criar">X</button>
+                    <button
+                        class="divCloseBtn"
+                        data-control-modal="modal-criar"
+                    >
+                        X
+                    </button>
                 </div>
-                   <h1>Atualizar Perfil</h1>
-                   <form id="atualizarPerfil">
-                       <input type="text" name="name" placeholder="Nome">
-                       <input type="text" name="email" placeholder="Email">
-                       <input type="text" name="avatar_url" placeholder="Avatar">
-                        <button id="atualizar" class="btn-criar">Atualizar</button>
-                   </form>
+                <h1>Atualizar Perfil</h1>
+                <form id="atualizarPerfil">
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Nome"
+                        id="nameProfile"
+                    />
+                    <input
+                        type="text"
+                        name="avatar_url"
+                        placeholder="Avatar"
+                        id="avatarProfile"
+                    />
+                    <button id="atualizarProfile" class="btn-criar">
+                        Atualizar
+                    </button>
+                </form>
             </div>
-        </div>
-
-        <div class="modal-wrapper" id="modal-criar">
+        </dialog>
+        <!-- <div class="modal-wrapper" id="modal-criar">
             <div class="modal-criar">
                 <div class="header-modal">
-                    <button class="divCloseBtn" data-control-modal="modal-criar">X</button>
+                    <button
+                        class="divCloseBtn"
+                        data-control-modal="modal-criar"
+                    >
+                        X
+                    </button>
                 </div>
-                   <h1>Deseja mesmo deletar sua conta?</h1>
-                   <button>Não desejo deletar minha conta</button>
-                   <button id="delete">Quero deletar minha conta</button>
-               </div>
-        </div>
+                <h1>Atualizar Perfil</h1>
+                <form id="atualizarPerfil">
+                    <input type="text" name="name" placeholder="Nome" />
+                    <input type="text" name="email" placeholder="Email" />
+                    <input type="text" name="avatar_url" placeholder="Avatar" />
+                    <button id="atualizar" class="btn-criar">Atualizar</button>
+                </form>
+            </div>
+        </div> -->
+
+        <!-- <div class="modal-wrapper" id="modal-criar">
+            <div class="modal-criar">
+                <div class="header-modal">
+                    <button
+                        class="divCloseBtn"
+                        data-control-modal="modal-criar"
+                    >
+                        X
+                    </button>
+                </div>
+                <h1>Deseja mesmo deletar sua conta?</h1>
+                <button>Não desejo deletar minha conta</button>
+                <button id="delete">Quero deletar minha conta</button>
+            </div>
+        </div> -->
 
         <script type="module" src="../scripts/perfil.js"></script>
     </body>

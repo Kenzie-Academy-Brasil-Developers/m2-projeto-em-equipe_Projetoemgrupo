@@ -3,60 +3,65 @@ import { updateProfile, deleteProfile } from "./requests.js";
 
 //Vitor
 //Atualizar Perfil
+import { consomeUpdateProfile } from "./requests.js";
+
 async function updateProfileForm() {
-    const user = await renderProfile();
-    const { email, name } = user;
-    const inputs = document.querySelectorAll("Form > input");
-    const btnUpdate = document.getElementById("btnUpdate");
-    const updateUser = {};
+    // const user = await renderProfile();
+    // const { name, avatar_url } = user;
+    // const inputs = document.querySelectorAll("Form > input");
+    // const btnUpdate = document.getElementById("btnUpdate");
+    // const updateUser = {};
 
-    inputs.forEach((input) => {
-        if (input.name == "name") {
-            input.value = name;
-        } else if (input.name == "email") {
-            input.value = email;
-        }
-    });
+    // inputs.forEach((input) => {
+    //     if (input.name == "name") {
+    //         input.value = name;
+    //     } else if (input.name == "avatar_url") {
+    //         input.value = avatar_url;
+    //     }
+    // });
 
-    btnUpdate.addEventListener("click", async (event) => {
+    // btnUpdate.addEventListener("click", async (event) => {
+    //     event.preventDefault();
+
+    //     inputs.forEach((input) => {
+    //         updateUser[input.name] = input.value;
+    //     });
+
+    //     if (updateUser.avatar_url == avatar_url || updateUser == "") {
+    //         delete updateUser.avatar_url;
+    //     }
+
+    //     renderProfile(await updateProfile(updateUser));
+    // });
+    const nameProfile = document.querySelector("#nameProfile");
+    const avatarProfile = document.querySelector("#avatarProfile");
+    const btnProfileAtt = document.querySelector("#atualizarProfile");
+    btnProfileAtt.addEventListener("click", async (event) => {
         event.preventDefault();
+        const data = {
+            name: nameProfile.value,
+            avatar_url: avatarProfile.value,
+        };
+        const request = await consomeUpdateProfile(data);
 
-        inputs.forEach((input) => {
-            updateUser[input.name] = input.value;
-        });
-
-        if (updateUser.email == email || updateUser == "") {
-            delete updateUser.email;
-        }
-
-        renderPerfil(await updateProfile(updateUser));
+        // return request;
     });
-
-
-    const buttons = document.querySelectorAll("[data-control-modal]")
-    for( let i = 0; i < buttons.length; i++){
-        buttons[i].addEventListener("click", function(){
-            let valorModal = buttons[i].getAttribute("data-control-modal")
-            document.getElementById(valorModal).classList.toggle("show-modal")
-        })
-
 }
 
-async function deleteUser(){
-    const btnDelete = document.getElementById("delete")
+async function deleteUser() {
+    const btnDelete = document.getElementById("delete");
 
-    btnDelete.addEventListener("click",async (event) =>{
-        event.preventDefault
+    btnDelete.addEventListener("click", async (event) => {
+        event.preventDefault;
 
-        deleteProfile()
-
-    })
+        deleteProfile();
+    });
 }
-deleteUser()
+deleteUser();
 
 updateProfileForm();
 //Bruno-- cadastro e atualização de pet
-function getUser() {
+export function getUser() {
     const user = JSON.parse(localStorage.getItem("token"));
     // console.log(user);
     return user;
@@ -225,47 +230,54 @@ function cadastroPet() {
 renderPets();
 cadastroPet();
 modalRegister();
-// import { ProfilePage } from "./requests.js";
+
+import { profilePage } from "./requests.js";
 //import{logout} from "./homeLogado.js"
 
-// ProfilePage();
+// console.log(profilePage);
 
-// export function renderProfile(data) {
-//     if (window.location.pathname == "./src/pages/perfil.html") {
-//         let { avatar_url, name, email, my_pets } = data;
-//         const main = document.querySelector("main");
+export async function renderProfile() {
+    const requestProfilePage = await profilePage();
+    // console.log(requestProfilePage);
+    const main = document.querySelector(".main_perfil");
 
-//         main.insertAdjacentHTML(
-//             "beforeend",
-//             `
-//         <div class="profile">
-//         <div class="profile-banner"></div>
-//         <div class="profile-container">
-//             <img src="${avatar_url}" class="profile-img">
-//             <div class="profile-info">
-//                 <div class="title-container">
-//                     <h3 class="profile-info-title">Dados Pessoais</h3>
-//                 </div>
-//             <div class="info-container">
-//                 <p class="profile-name">Nome: ${name}</p>
-//                 <p class="profile-email">E-mail: ${email}</p>
-//                 <p class="birth-date">Data de nascimento: 21/03/2000</p>
-//             </div>
-//             <div class="buttonSection">
-//                 <button class="change-info">Atualizar Informações</button>
-//                 <button class="delete-account">Deletar Conta</button>
-//             </div>
-//             </div>
-//         </div>
-//      </div>
-//           <div class="pet-section">
-//              <button class ="register-pet">Cadastrar novo pet</button>
-//              <div class="user-pets">
-//             </div>
-//         `
-//         );
-//     }
-// }
+    main.insertAdjacentHTML(
+        "beforeend",
+        `
+            <div class="div_container">
+            <img src="${requestProfilePage.avatar_url}" alt="" class="profileImg" />
+            <div class="divInfos">
+                <h2 class="titleProfile">Dados Pessoais</h2>
+                <div class="divUserInfos">
+                    <p class="descInfo">
+                        <span class="purpleText">Nome: ${requestProfilePage.name}</span>
+                    </p>
+                    <p class="descInfo">
+                        <span class="purpleText">Email: ${requestProfilePage.email}</span>
+                    </p>
+                    <p class="descInfo">
+                        <span class="purpleText">Data de Nascimento: 21/03/2000</span>
+                    </p>
+                </div>
+                <div class="divBtnProfile">
+                    <button class="purpleBtn" id="btnUpdate"  data-id=${requestProfilePage.id} data-control-modal="modal-login">Atualizar informações</button>
+                    <button class="redBtn" id="delete" data-id=${requestProfilePage.id}>Deletar conta</button>
+                </div>
+            </div>
+        </div>
+        `
+    );
+    const dialog = document.querySelector(".modal-wrapper");
+    const btnOpen = document.querySelector("#btnUpdate");
+    btnOpen.addEventListener("click", () => {
+        console.log(dialog);
+        dialog.showModal();
+    });
+
+    return main;
+}
+renderProfile();
+
 function backHome() {
     if (window.location.pathname == "/src/pages/perfil.html") {
         const button = document.querySelector(".Botao_Home");
