@@ -1,10 +1,10 @@
 // Bruno-- cadastro e atualização de pet
-import { updateProfile } from "./requests.js";
+import { updateProfile, deleteProfile } from "./requests.js";
 
 //Vitor
 //Atualizar Perfil
 async function updateProfileForm() {
-    const user = await lerPerfil();
+    const user = await renderProfile();
     const { email, name } = user;
     const inputs = document.querySelectorAll("Form > input");
     const btnUpdate = document.getElementById("btnUpdate");
@@ -31,7 +31,28 @@ async function updateProfileForm() {
 
         renderPerfil(await updateProfile(updateUser));
     });
+
+
+    const buttons = document.querySelectorAll("[data-control-modal]")
+    for( let i = 0; i < buttons.length; i++){
+        buttons[i].addEventListener("click", function(){
+            let valorModal = buttons[i].getAttribute("data-control-modal")
+            document.getElementById(valorModal).classList.toggle("show-modal")
+        })
+
 }
+
+async function deleteUser(){
+    const btnDelete = document.getElementById("delete")
+
+    btnDelete.addEventListener("click",async (event) =>{
+        event.preventDefault
+
+        deleteProfile()
+
+    })
+}
+deleteUser()
 
 updateProfileForm();
 //Bruno-- cadastro e atualização de pet
