@@ -293,7 +293,7 @@ function logout() {
         const button = document.querySelector(".Botao_Logout");
         button.addEventListener("click", () => {
             localStorage.removeItem("@kenziePet:cadastro");
-            window.location.replace("/homedeslogado.html");
+            window.location.replace("/index.html");
         });
     }
 }

@@ -16,10 +16,10 @@ export async function createUser(data) {
 
     if (!creatUserData.ok) {
         alert(`${creatUserDataJson.message}`);
-        window.location.replace("./homeDeslogado.html");
+        window.location.replace("./index.html");
     } else {
         alert(`Cadastro realizado com sucesso`);
-        window.location.replace("./homeDeslogado.html");
+        window.location.replace("./index.html");
     }
     return creatUserDataJson;
 }
@@ -98,7 +98,7 @@ export async function deleteProfile() {
         alert("ERRO AO DELETAR PERFIL");
     } else {
         alert("PERFIL DELETADO");
-        window.location.replace("../homeDeslogado.html");
+        window.location.replace("../index.html");
     }
 }
 
