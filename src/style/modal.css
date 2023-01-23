@@ -81,7 +81,24 @@ input::placeholder {
   padding: 6px;
   cursor: pointer;
   font-size: var(--text-3);
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
 }
+.importantBtn:hover,
+.importantBtnh:focus,
+.importantBtn:active {
+  -webkit-transform: scale(1.1) rotate(4deg);
+  transform: scale(1.1) rotate(4deg);
+  background-color: var(--color-Verde);
+}
+
 span {
   font-size: var(--text-5);
 }
@@ -109,6 +126,80 @@ span {
   align-items: center;
   padding: 49px;
 }
+.dialog-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 49px;
+  flex-direction: column;
+}
+.modal_login {
+  font-size: 33px;
+  font-weight: bolder;
+}
+.Yes {
+  color: var(--color-Branco);
+  background: var(--color-Verde);
+  border: none;
+  border-radius: 13px;
+  height: 28px;
+  cursor: pointer;
+}
+.No {
+  background: var(--color-Roxo-claro);
+  border: none;
+  height: 31px;
+  border-radius: 14px;
+  color: var(--color-Branco);
+  cursor: pointer;
+}
+.yes-or-no {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 40%;
+  gap: 24px;
+  margin-top: 75px;
+  width: 80%;
+}
+.yes-or-no > p {
+  margin-left: 142px;
+  font-size: 24px;
+  font-weight: 700;
+}
+.redBtn-modal:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-Vermelho);
+
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.redBtn-modal:hover,
+.redBtn-modal:focus,
+.redBtn-modal:active {
+  color: var(--color-Vermelho);
+}
+.redBtn-modal:hover:before,
+.redBtn-modal:focus:before,
+.redBtn-modal:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
 @media (min-width: 550px) {
   dialog {
     width: 520px;

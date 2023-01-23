@@ -15,14 +15,14 @@
             <nav class="container_Cabecalho">
                 <img src="/src/assets/Logo.svg" alt="" />
                 <div class="Botoes">
-                    <button class="Botao_Home">Home</button>
-                    <button class="Botao_Logout">Logout</button>
+                    <button class="Botao_Home hvr-float">Home</button>
+                    <button class="Botao_Logout hvr-sink">Logout</button>
                 </div>
             </nav>
         </header>
         <main class="main_perfil"></main>
         <section class="All-pets">
-            <button id="register">Cadastro</button>
+            <button class="hvr-grow-rotate" id="register">Cadastro</button>
             <div class="pets-box">
                 <ul class="list-pets"></ul>
             </div>
@@ -162,19 +162,22 @@
         </dialog>
 
         <dialog class="modal_deleteProfile">
-            <div class="dialog">
+            <div class="dialog-delete">
                 <div class="divCloseBtn">
                     <button class="Fecha_Modal closeDeleteModal_Btn">X</button>
                 </div>
 
-                    <h2 class="modal_login">Deseja mesmo deletar sua conta?</h2>
-                    <button class="deleteProfile importantBtn">Deletar minha conta</button>
+                <h2 class="modal_login">Deseja mesmo deletar sua conta?</h2>
+                <div class="delete-btns">
+                    <button class="deleteProfile redBtn-modal">Deletar minha conta</button>
                     <button
-                        class="notDeleteBtn redBtn"
-                        id="notDelete"
+                    class="notDeleteBtn  importantBtn "
+                    id="notDelete"
                     >
-                        Não deletar minha conta
-                    </button>
+                    Não deletar minha conta
+                </button>
+         
+            </div>
                 </form>
                 <div class="purpleLine"></div>
             </div>

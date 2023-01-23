@@ -72,3 +72,4 @@ export async function deleteProfile() {
         window.location.replace("../../index.html");
     }
 }
+

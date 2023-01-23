@@ -59,11 +59,11 @@ function openModalLogin() {
 openModalLogin();
 
 async function eventLogin() {
-    // const form = document.querySelector(".Login_Form");
+
     const loginBtn = document.querySelector(".Login_Btn");
 
     const elements = document.querySelectorAll(".Login_Form>input");
-    // console.log(elements);
+
     loginBtn.addEventListener("click", async (e) => {
         e.preventDefault();
         const body = {};
